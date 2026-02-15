@@ -12,3 +12,11 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: systemd-setup.yaml
+
+
+
+- name: starting and enabling {{ component }} service
+  ansible.builtin.service:
+    name: "{{ component }}"
+    state: restarted
+    enabled: true
