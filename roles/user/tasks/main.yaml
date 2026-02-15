@@ -13,7 +13,12 @@
     name: common
     tasks_from: systemd-setup.yaml
 
-- name: start user
+- name: Unmask user service
+  ansible.builtin.systemd_service:
+    name: user
+    masked: false
+
+- name: Start and enable user service
   ansible.builtin.service:
     name: user
     state: restarted
