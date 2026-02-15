@@ -18,8 +18,8 @@
     name: user
     masked: false
 
-- name: Start and enable user service
+- name: Start and enable {{ component }} service
   ansible.builtin.service:
-    name: user
+    name: "{{ component }}"
     state: restarted
     enabled: true

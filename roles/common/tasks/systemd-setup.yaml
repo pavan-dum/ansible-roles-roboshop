@@ -1,9 +1,19 @@
-- name: copying {{ component }} system service
+- name: Copy {{ component }} system service
   ansible.builtin.template:
     src: "{{ component }}.service.j2"
     dest: "/etc/systemd/system/{{ component }}.service"
 
-- name: Daemon reload system service 
+- name: Reload systemd
   ansible.builtin.systemd_service:
     daemon_reload: true
 
+- name: Unmask {{ component }} service
+  ansible.builtin.systemd_service:
+    name: "{{ component }}"
+    masked: false
+
+- name: Start and enable {{ component }} service
+  ansible.builtin.systemd_service:
+    name: "{{ component }}"
+    state: restarted
+    enabled: true
