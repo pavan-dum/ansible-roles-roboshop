@@ -8,3 +8,4 @@ cart_host: cart-dev.dpavan.online
 mysql_host: mysql-dev.dpavan.online
 rabbitmq_host: rabbitmq-dev.dpavan.online
 shipping_host: shipping-dev.dpavan.online
+payment_host: payment-dev.dpavan.online
