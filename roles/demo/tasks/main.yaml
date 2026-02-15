@@ -1,0 +1,3 @@
+- name: Executing roles Demo
+  ansible.builtin.debug:
+    msg: "Hi from roles"
